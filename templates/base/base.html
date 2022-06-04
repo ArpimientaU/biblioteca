@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN" crossorigin="anonymous">
+    <title>BIBLIOTECA</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button> 
+      
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="{% url 'home' %}">Inicio
+                  <span class="visually-hidden"></span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'ejemplares:listEjemplares' %}">Ejemplares</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'libros:listLibros'%}">Libros</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'libros:listAutor'%}">Autores</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'ejemplares:listPrestamo'%}">Prestamos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'ejemplares:listUsuarios'%}">Usuarios</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'ejemplares:consulta1'%}">Consulta 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'ejemplares:consulta2'%}">Consulta 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'ejemplares:consulta3'%}">Consulta 3</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+      {% block content %}
+
+
+
+      {% endblock %}
+
+</body>
+</html>

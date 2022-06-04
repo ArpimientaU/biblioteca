@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<h1> Usuarios </h1>
+<a href="{% url 'ejemplares:usuariosCreate' %}" class="btn btn-primary pull-right"> Adicionar</a>
+{% if ejemplares %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Dirección</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for usuarios in ejemplares %}
+        <tr>
+            <td>{{ usuarios.id}}</td>
+            <td>{{ usuarios.nombre}}</td>
+            <td>{{ usuarios.apellido}}</td>
+            <td>{{ usuarios.direccion}}</td>
+            <td>{{ usuarios.telefono}}</td>
+            <td>
+            <a href="{% url 'ejemplares:usuariosEdit' usuarios.id %}" class="btn btn-dark btn-xs"> <i class="fa-solid fa-pen"></i>
+            </a>
+            <a href="{% url 'ejemplares:usuariosEliminar' usuarios.id %}" class="btn btn-danger btn-xs"> <i class="fa-solid fa-trash-can"></i>
+            </a>
+            </td>
+        </tr>
+    {% endfor %}
+    {% else %}
+    <h1>SIN REGISTROS</h1>
+  {% endif %}
+    
+    </tbody>
+  </table>
+{% endblock %}

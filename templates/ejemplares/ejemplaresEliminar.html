@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<form method="post">
+    {% csrf_token %}
+    <h4> ¿Desea eliminar el registro #{{ejemplar.id}} con localización en {{ejemplar.localización}}?</h4>
+    <button class="btn btn-danger" type="submit"> Si, eliminar</button>
+    <a href="{% url 'ejemplares:listEjemplares' %}" class="btn btn-primary">Cancelar</a>
+</form>
+
+{% endblock %}

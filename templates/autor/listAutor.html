@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<h1> Autores </h1>
+<a href="{% url 'libros:autorCreate' %}" class="btn btn-primary pull-right"> Adicionar</a>
+{% if libros %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Opciones</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for autor in libros %}
+                <tr>
+                    <td>{{autor.id}}</td>
+                    <td>{{autor.nombre}}</td>
+                    <td>
+                    <a href="{% url 'libros:autorEdit' autor.id %}" class="btn btn-dark btn-xs"> <i class="fa-solid fa-pen"></i>
+                    </a>
+                    <a href="{% url 'libros:autorEliminar' autor.id %}" class="btn btn-danger btn-xs"> <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            {% else %}
+            <h1>SIN EJEMPLARES</h1>
+          {% endif %}
+    
+    </tbody>
+  </table>
+{% endblock %}

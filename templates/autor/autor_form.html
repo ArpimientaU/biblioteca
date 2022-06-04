@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}
+<h1>Crear ejemplar</h1>
+{% endblock %}
+
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button class="btn btn-success" type="submit"> Guardar datos</button>
+</form>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+<h1> Libros </h1>
+<a href="{% url 'libros:librosCreate' %}" class="btn btn-primary pull-right"> Adicionar</a>
+{% if libros %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Título</th>
+        <th scope="col">Número de Páginas</th>
+        <th scope="col">Editorial</th>
+        <th scope="col">ISBN</th>
+        <th scope="col">Autor</th>
+        <th scope="col">Opciones</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for libro in libros %}
+        <tr>
+            <td>{{ libro.id}}</td>
+            <td>{{ libro.titulo}}</td>
+            <td>{{ libro.numero_pagina}}</td>
+            <td>{{ libro.editorial}}</td>
+            <td>{{ libro.isbn}}</td>
+            <td>{{ libro.autor}}</td>
+            <td>
+                <a href="{% url 'libros:librosEdit' libro.id %}" class="btn btn-dark btn-xs"> <i class="fa-solid fa-pen"></i>
+                </a>
+                <a href="{% url 'libros:librosEliminar' libro.id %}" class="btn btn-danger btn-xs"> <i class="fa-solid fa-trash-can"></i>
+                </a>
+                </td>
+        </tr>
+    {% endfor %}
+    {% else %}
+    <h1>SIN LIBROS</h1>
+  {% endif %}
+    </tbody>
+  </table>
+{% endblock %}
